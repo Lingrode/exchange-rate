@@ -1,9 +1,16 @@
 import { Suspense } from "react";
 import { MdCurrencyExchange } from "react-icons/md";
 import { NavLink, Outlet } from "react-router";
+
+import { useAppSelector } from "@/hooks/reduxHooks";
+import { selectBaseCurrency } from "@/redux/currency/selectors";
+
+import RatesSelector from "./CurrencySelector";
 import { buttonVariants } from "./ui/button";
 
 const Header = () => {
+  const baseCurrency = useAppSelector(selectBaseCurrency);
+
   return (
     <>
       <header className="flex items-center justify-between px-2.5 py-5 shadow-accent-foreground">
@@ -16,7 +23,7 @@ const Header = () => {
                   to="/"
                   className={({ isActive }) =>
                     buttonVariants(
-                      isActive ? { variant: "default" } : { variant: "default" }
+                      isActive ? { variant: "default" } : { variant: "ghost" }
                     )
                   }
                 >
@@ -38,6 +45,8 @@ const Header = () => {
             </ul>
           </nav>
         </div>
+
+        {baseCurrency && <RatesSelector baseCurrency={baseCurrency} />}
       </header>
       <Suspense fallback={"Loading..."}>
         <Outlet />
