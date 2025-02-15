@@ -1,8 +1,24 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getBaseCurrency } from "./operations";
+import { getBaseCurrency, getExchange } from "./operations";
+import { CurrencyState } from "./types";
 
-const initialState = {
+const initialState: CurrencyState = {
   baseCurrency: "",
+  exchangeInfo: null,
+  isLoading: false,
+  isError: null,
+};
+
+const handlePendind = (state: Pick<CurrencyState, "isLoading">) => {
+  state.isLoading = true;
+};
+
+const handleRejected = (
+  state: Pick<CurrencyState, "isError" | "isLoading">,
+  action: PayloadAction<string | undefined>
+) => {
+  state.isError = action.payload;
+  state.isLoading = false;
 };
 
 const currencySlice = createSlice({
@@ -14,9 +30,16 @@ const currencySlice = createSlice({
     },
   },
   extraReducers(builder) {
-    builder.addCase(getBaseCurrency.fulfilled, (state, action) => {
-      state.baseCurrency = action.payload;
-    });
+    builder
+      .addCase(getBaseCurrency.fulfilled, (state, action) => {
+        state.baseCurrency = action.payload;
+      })
+      .addCase(getExchange.pending, handlePendind)
+      .addCase(getExchange.fulfilled, (state, action) => {
+        state.exchangeInfo = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(getExchange.rejected, handleRejected);
   },
 });
 

@@ -1,8 +1,12 @@
 import { FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { useAppDispatch } from "@/hooks/reduxHooks";
+import { getExchange } from "@/redux/currency/operations";
 
 const ExchangeForm = () => {
+  const dispatch = useAppDispatch();
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
@@ -10,6 +14,8 @@ const ExchangeForm = () => {
       form.elements.namedItem("search") as HTMLInputElement
     ).value.trim();
     const [amount, from, , to] = inputValue.split(" ");
+
+    dispatch(getExchange({ to, from, amount }));
   };
 
   return (
