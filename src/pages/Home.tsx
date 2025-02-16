@@ -23,6 +23,7 @@ const Home = () => {
     <Section>
       <Container>
         <ExchangeForm />
+
         {!exchangeInfo && !isError && (
           <Heading info title="What currencies do you want to exchange?🙂" />
         )}

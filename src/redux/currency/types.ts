@@ -3,6 +3,7 @@ export type CurrencyState = {
   exchangeInfo: null | ExchangeInfoType;
   isLoading: boolean;
   isError: null | undefined | string;
+  rates: [string, number][];
 };
 
 export type ExchangeInfoType = {
@@ -29,6 +30,10 @@ export type ExchangeResponse = {
     to: string;
   };
   result: number;
+};
+
+export type ExchangeRates = {
+  [currencyCode: string]: number;
 };
 
 export type ExchangeCredentials = {

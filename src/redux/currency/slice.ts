@@ -7,6 +7,7 @@ const initialState: CurrencyState = {
   exchangeInfo: null,
   isLoading: false,
   isError: null,
+  rates: [],
 };
 
 const handlePendind = (state: Pick<CurrencyState, "isLoading">) => {
