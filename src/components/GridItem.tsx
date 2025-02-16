@@ -8,7 +8,7 @@ type Props = {
 
 const GridItem = ({ children }: Props) => {
   return (
-    <Card>
+    <Card className="transition-transform hover:scale-105">
       <CardHeader className="flex items-center flex-col justify-center">
         {children}
       </CardHeader>

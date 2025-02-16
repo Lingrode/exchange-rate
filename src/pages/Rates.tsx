@@ -14,6 +14,7 @@ import {
   selectIsError,
   selectIsLoading,
 } from "@/redux/currency/selectors";
+import Filter from "@/components/Filter";
 
 const Rates = () => {
   const dispatch = useAppDispatch();
@@ -31,6 +32,8 @@ const Rates = () => {
   return (
     <Section>
       <Container>
+        <Filter />
+
         {isError && (
           <Heading
             error
