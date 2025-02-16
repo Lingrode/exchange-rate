@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getBaseCurrency, getExchange } from "./operations";
+import { getBaseCurrency, getExchange, getLatestRates } from "./operations";
 import { CurrencyState } from "./types";
 
 const initialState: CurrencyState = {
@@ -40,7 +40,13 @@ const currencySlice = createSlice({
         state.exchangeInfo = action.payload;
         state.isLoading = false;
       })
-      .addCase(getExchange.rejected, handleRejected);
+      .addCase(getExchange.rejected, handleRejected)
+      .addCase(getLatestRates.pending, handlePendind)
+      .addCase(getLatestRates.fulfilled, (state, action) => {
+        state.rates = Object.entries(action.payload);
+        state.isLoading = false;
+      })
+      .addCase(getLatestRates.rejected, handleRejected);
   },
 });
 
