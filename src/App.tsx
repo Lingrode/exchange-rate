@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router";
 import Home from "./pages/Home";
 import Rates from "./pages/Rates";
 import Header from "./components/Header";
+import ThemeProvider from "./components/ThemeProvider";
 
 import { useAppDispatch } from "./hooks/reduxHooks";
 import { getBaseCurrency } from "./redux/currency/operations";
@@ -28,13 +29,15 @@ function App() {
   });
 
   return (
-    <Routes>
-      <Route path="/" element={<Header />}>
-        <Route index element={<Home />} />
-        <Route path="/rates" element={<Rates />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Route>
-    </Routes>
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <Routes>
+        <Route path="/" element={<Header />}>
+          <Route index element={<Home />} />
+          <Route path="/rates" element={<Rates />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Route>
+      </Routes>
+    </ThemeProvider>
   );
 }
 
