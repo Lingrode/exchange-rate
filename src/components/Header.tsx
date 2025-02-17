@@ -2,11 +2,12 @@ import { Suspense } from "react";
 import { MdCurrencyExchange } from "react-icons/md";
 import { NavLink, Outlet } from "react-router";
 
+import RatesSelector from "./CurrencySelector";
+import ThemeToggle from "./ThemeToggle";
+import { buttonVariants } from "./ui/button";
+
 import { useAppSelector } from "@/hooks/reduxHooks";
 import { selectBaseCurrency } from "@/redux/currency/selectors";
-
-import RatesSelector from "./CurrencySelector";
-import { buttonVariants } from "./ui/button";
 
 const Header = () => {
   const baseCurrency = useAppSelector(selectBaseCurrency);
@@ -46,7 +47,11 @@ const Header = () => {
           </nav>
         </div>
 
-        {baseCurrency && <RatesSelector baseCurrency={baseCurrency} />}
+        <div className="flex gap-10">
+          {baseCurrency && <RatesSelector baseCurrency={baseCurrency} />}
+
+          <ThemeToggle />
+        </div>
       </header>
       <Suspense fallback={"Loading..."}>
         <Outlet />
