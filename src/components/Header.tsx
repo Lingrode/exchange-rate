@@ -47,7 +47,7 @@ const Header = () => {
           </nav>
         </div>
 
-        <div className="flex gap-10">
+        <div className="flex gap-4 items-center">
           {baseCurrency && <RatesSelector baseCurrency={baseCurrency} />}
 
           <ThemeToggle />
