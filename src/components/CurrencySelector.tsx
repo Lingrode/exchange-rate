@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from "@/hooks/reduxHooks";
 import { setDefaultCurrency } from "@/redux/currency/slice";
 
-import symbols from "../symbols.json";
+import symbols from "@/symbols.json";
 
 type Props = {
   baseCurrency: string;

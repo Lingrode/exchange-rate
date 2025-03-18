@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Card, CardHeader } from "./ui/card";
+import { Card, CardHeader } from "@/components/ui/card";
 
 type Props = {
   children: React.ReactNode;

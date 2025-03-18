@@ -1,6 +1,6 @@
-import Grid from "./Grid";
-import GridItem from "./GridItem";
-import { CardTitle } from "./ui/card";
+import Grid from "@/components/Grid";
+import GridItem from "@/components/GridItem";
+import { CardTitle } from "@/components/ui/card";
 
 type Props = {
   rates: { key: string; value: string }[];

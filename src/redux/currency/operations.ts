@@ -5,8 +5,8 @@ import {
   ExchangeRates,
   ExchangeResult,
   OpenCageCredentials,
-} from "./types";
-import { RootState } from "../store";
+} from "@/redux/currency/types";
+import { RootState } from "@/redux/store";
 import { exchangeCurrency, latestRates } from "@/service/exchangeApi";
 
 export const getBaseCurrency = createAsyncThunk<

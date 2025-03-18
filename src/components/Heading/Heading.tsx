@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Props } from "./types";
+import { Props } from "@/components/Heading/types";
 
 const Heading = ({
   title,

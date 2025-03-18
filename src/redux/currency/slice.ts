@@ -1,6 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { getBaseCurrency, getExchange, getLatestRates } from "./operations";
-import { CurrencyState } from "./types";
+import {
+  getBaseCurrency,
+  getExchange,
+  getLatestRates,
+} from "@/redux/currency/operations";
+import { CurrencyState } from "@/redux/currency/types";
 
 const initialState: CurrencyState = {
   baseCurrency: "",

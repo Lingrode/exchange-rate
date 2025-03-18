@@ -2,9 +2,9 @@ import { Suspense } from "react";
 import { MdCurrencyExchange } from "react-icons/md";
 import { NavLink, Outlet } from "react-router";
 
-import RatesSelector from "./CurrencySelector";
-import ThemeToggle from "./ThemeToggle";
-import { buttonVariants } from "./ui/button";
+import RatesSelector from "@/components/CurrencySelector";
+import ThemeToggle from "@/components/ThemeToggle";
+import { buttonVariants } from "@/components/ui/button";
 
 import { useAppSelector } from "@/hooks/reduxHooks";
 import { selectBaseCurrency } from "@/redux/currency/selectors";

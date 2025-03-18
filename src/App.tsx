@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router";
 
-import Home from "./pages/Home";
-import Rates from "./pages/Rates";
-import Header from "./components/Header";
-import ThemeProvider from "./components/ThemeProvider";
+import Home from "@/pages/Home";
+import Rates from "@/pages/Rates";
+import Header from "@/components/Header";
+import ThemeProvider from "@/components/ThemeProvider";
 
-import { useAppDispatch } from "./hooks/reduxHooks";
-import { getBaseCurrency } from "./redux/currency/operations";
-import { setDefaultCurrency } from "./redux/currency/slice";
+import { useAppDispatch } from "@/hooks/reduxHooks";
+import { getBaseCurrency } from "@/redux/currency/operations";
+import { setDefaultCurrency } from "@/redux/currency/slice";
 
-import "./App.css";
+import "@/App.css";
 
 function App() {
   const dispatch = useAppDispatch();

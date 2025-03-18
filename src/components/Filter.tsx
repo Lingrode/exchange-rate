@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-import { Input } from "./ui/input";
+import { Input } from "@/components/ui/input";
 
 import { useAppDispatch, useAppSelector } from "@/hooks/reduxHooks";
 import { selectFilter } from "@/redux/filter/selectors";

@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { RootState } from "../store";
-import { selectFilter } from "../filter/selectors";
+import { RootState } from "@/redux/store";
+import { selectFilter } from "@/redux/filter/selectors";
 
 export const selectBaseCurrency = (state: RootState) =>
   state.currency.baseCurrency;
